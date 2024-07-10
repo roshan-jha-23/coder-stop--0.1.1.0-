@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import {  Recursive } from "next/font/google";
 import { ThemeProvider } from "@/components/theme-provider";
 import "./globals.css";
+import Navbar from "@/components/Navbar";
 
 
 const recursive = Recursive({ subsets: ["latin","cyrillic-ext"] });
@@ -25,6 +26,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
+          <Navbar/>
           {children}
         </ThemeProvider>
       </body>
