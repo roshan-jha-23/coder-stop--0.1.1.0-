@@ -1,4 +1,3 @@
-
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -50,7 +49,7 @@ const Navbar: FC<NavbarProps> = async ({}) => {
               </DropdownMenuContent>
             </DropdownMenu>
             <Link href="/" className="flex z-40 font-semibold text-gray-900">
-              Coder <span className="text-violet-600">Stop</span>
+              Coder <span className="text-orange-600">Stop</span>
             </Link>
           </div>
           <div className="h-full flex items-center space-x-4">
