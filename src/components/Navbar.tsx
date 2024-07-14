@@ -35,16 +35,59 @@ const Navbar: FC<NavbarProps> = async ({}) => {
                 </DropdownMenuLabel>
                 <DropdownMenuSeparator />
                 <DropdownMenuItem className="hover:bg-gray-100 text-gray-900">
-                  Profile
+                  <Link
+                    className={buttonVariants({
+                      size: "md",
+                      variant: "ghost",
+                    })}
+                    href="/"
+                  >
+                    Profile
+                  </Link>
                 </DropdownMenuItem>
                 <DropdownMenuItem className="hover:bg-gray-100 text-gray-900">
-                  Billing
+                  <Link
+                    className={buttonVariants({
+                      size: "md",
+                      variant: "ghost",
+                    })}
+                    href="/"
+                  >
+                    Profile
+                  </Link>
                 </DropdownMenuItem>
                 <DropdownMenuItem className="hover:bg-gray-100 text-gray-900">
-                  Team
+                  <Link
+                    className={buttonVariants({
+                      size: "md",
+                      variant: "ghost",
+                    })}
+                    href="/"
+                  >
+                    Profile
+                  </Link>
                 </DropdownMenuItem>
                 <DropdownMenuItem className="hover:bg-gray-100 text-gray-900">
-                  Subscription
+                  <Link
+                    className={buttonVariants({
+                      size: "md",
+                      variant: "ghost",
+                    })}
+                    href="/aboutus"
+                  >
+                   About us
+                  </Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem className="hover:bg-gray-100 text-gray-900">
+                  <Link
+                    className={buttonVariants({
+                      size: "md",
+                      variant: "ghost",
+                    })}
+                    href="/contact"
+                  >
+                    Contact Us
+                  </Link>
                 </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
@@ -75,7 +118,7 @@ const Navbar: FC<NavbarProps> = async ({}) => {
                     Dashboard☠️
                   </Link>
                 ) : null}
-               
+
                 <ModeToggle />
               </>
             ) : (
