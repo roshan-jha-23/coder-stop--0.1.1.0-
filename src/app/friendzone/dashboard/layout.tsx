@@ -7,6 +7,8 @@ import { notFound } from "next/navigation";
 import { FC, ReactNode } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUserPlus, faUsers, faBars } from "@fortawesome/free-solid-svg-icons";
+import FriendRequestSidebarOption from "@/components/FriendRequestSidebarOption";
+import { fetchRedis } from "@/helpers/redis";
 
 interface LayoutProps {
   children: ReactNode;
@@ -24,15 +26,11 @@ const sidebarOptions: SidebarOptions[] = [
     href: "/friendzone/dashboard/add",
     icon: faUserPlus,
   },
-  {
-    id: 2,
-    name: "Your Friends",
-    href: "/friendzone/dashboard/friends",
-    icon: faUsers,
-  },
+
 ];
 
 const Layout: FC<LayoutProps> = async ({ children }) => {
+
   const { getUser } = getKindeServerSession();
   const user = await getUser();
   const picurl = user?.picture;
@@ -40,7 +38,7 @@ const Layout: FC<LayoutProps> = async ({ children }) => {
   if (!user) {
     return notFound();
   }
-
+  const unseenRequestCount=(await fetchRedis('smembers',`user:${user.id}:incoming_friend_requests`) as User[]).length
   return (
     <div className="flex h-screen w-full">
       <div className="flex h-full w-full max-w-xs flex-col gap-y-5 overflow-y-auto border-r">
@@ -76,11 +74,16 @@ const Layout: FC<LayoutProps> = async ({ children }) => {
                 ))}
               </ul>
             </li>
+            <li>
+              <FriendRequestSidebarOption
+                sessionId={user.id}
+                initialUnseenRequestCount={unseenRequestCount}
+              />
+            </li>
             <li className="mt-auto flex items-center gap-x-4 border-t px-4 py-3 text-sm font-semibold leading-6">
               <div className="relative h-10 w-10 rounded-full overflow-hidden bg-gray-50">
-                <img
-                  src={picurl}
-                  alt="profilepic"
+                <FontAwesomeIcon
+                  icon={faUsers}
                   className="object-cover w-full h-full"
                 />
               </div>

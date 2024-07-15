@@ -1,4 +1,9 @@
 import {
+  faCode
+} from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
+import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
@@ -9,7 +14,6 @@ import {
 import Link from "next/link";
 import { FC } from "react";
 import MaxWidthWrapper from "./MaxWidthWrapper";
-import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 import { buttonVariants } from "./ui/button";
 import { ModeToggle } from "./ui/ModeToggle";
 
@@ -51,11 +55,12 @@ const Navbar: FC<NavbarProps> = async ({}) => {
                       size: "md",
                       variant: "ghost",
                     })}
-                    href="/"
+                    href="/friendzone/dashboard/add"
                   >
-                    Profile
+                    FriendZone
                   </Link>
                 </DropdownMenuItem>
+               
                 <DropdownMenuItem className="hover:bg-gray-100 text-gray-900">
                   <Link
                     className={buttonVariants({
@@ -64,7 +69,19 @@ const Navbar: FC<NavbarProps> = async ({}) => {
                     })}
                     href="/"
                   >
-                    Profile
+                    Coding Blogs
+                    <FontAwesomeIcon className='mx-2' icon={faCode} />
+                  </Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem className="hover:bg-gray-100 text-gray-900">
+                  <Link
+                    className={buttonVariants({
+                      size: "md",
+                      variant: "ghost",
+                    })}
+                    href="/resources"
+                  >
+                    Resources⭐
                   </Link>
                 </DropdownMenuItem>
                 <DropdownMenuItem className="hover:bg-gray-100 text-gray-900">
@@ -75,7 +92,7 @@ const Navbar: FC<NavbarProps> = async ({}) => {
                     })}
                     href="/aboutus"
                   >
-                   About us
+                    About us
                   </Link>
                 </DropdownMenuItem>
                 <DropdownMenuItem className="hover:bg-gray-100 text-gray-900">
