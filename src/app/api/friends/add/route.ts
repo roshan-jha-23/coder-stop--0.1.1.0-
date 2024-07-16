@@ -63,7 +63,7 @@ console.log("11");
       });
     }
 
-    await db.sadd(`user:${idToAdd}:incoming_friend_requests`, user.id);
+    await db.sadd(`user:${idToAdd}:incoming_friend_requests`, user.email);
 
     return new Response("Friend added successfully.", { status: 200 });
   } catch (error) {
